@@ -1,0 +1,25 @@
+.shoppingCartContainer{
+    width: 45px;
+    height: 45px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 5px;
+    cursor: pointer;
+    
+    .shoppingCartItemsNumber{
+        position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    bottom: 2px;
+       }
+    
+       .shoppingCartIcon {
+        width: 48px;
+        height: 48px;
+      }
+  
+    
+}
+
