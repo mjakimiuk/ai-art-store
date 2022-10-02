@@ -12,14 +12,7 @@ $bright-color: #fff;
  box-sizing: border-box;
 }
 
-body {
-font-family: 'Roboto', sans-serif;
- display: flex;
- justify-content: center;
- align-items: center;
- min-height: 100vh;
- line-height: 1.4;
-}
+
 
 .container {
 
@@ -50,6 +43,9 @@ font-family: 'Roboto', sans-serif;
  
  
  .container-text-description {
+  
+  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
   background-color: #e4f2fd;
   display: flex;
   align-items: center;

@@ -1,10 +1,15 @@
 import "./button.style.scss";
 
-const ButtonComponent = ({ children, ...otherProps }) => {
+export const BUTTON_TYPE = {
+  base: "base-button",
+  google: "google-signIn",
+};
+
+const ButtonComponent = ({ children, buttonType, ...otherProps }) => {
   return (
-    <div className="button" {...otherProps}>
+    <button className={`button-container ${buttonType}`} {...otherProps}>
       {children}
-    </div>
+    </button>
   );
 };
 
