@@ -1,12 +1,12 @@
 import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import ButtonComponent, { BUTTON_TYPE } from "../button/button.component";
-
+import { Navigate } from "react-router-dom";
 import {
   signInWithGooglePopUp,
   signInUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../features/user/userSlice.feature";
 import "./user.sign-in.style.scss";
 
@@ -62,6 +62,7 @@ const SignInForm = () => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
+  const userAuth = useSelector((store) => store.user);
 
   return (
     <div className="sign-in-container">
@@ -86,7 +87,9 @@ const SignInForm = () => {
           value={password}
         />
         <div className="buttons-container">
-          <ButtonComponent type="submit">Sign In</ButtonComponent>
+          <ButtonComponent type="submit" buttonType={BUTTON_TYPE.base}>
+            Sign In
+          </ButtonComponent>
           <ButtonComponent
             type="button"
             buttonType={BUTTON_TYPE.google}
@@ -94,6 +97,7 @@ const SignInForm = () => {
           ></ButtonComponent>
         </div>
       </form>
+      {userAuth.user !== null && <Navigate to="/" />}
     </div>
   );
 };
