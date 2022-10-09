@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.category-container {
+
+    display:  grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.category-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 38px;
+    margin-bottom: 25px;
+    text-align: center;
+ 
+}

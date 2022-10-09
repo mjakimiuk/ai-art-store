@@ -1,8 +1,12 @@
+import { Routes, Route } from "react-router-dom";
+import Category from "../../components/category/category.component";
+import CategoriesPreview from "../categories-preview/categories-preview.component";
 const Shop = () => {
   return (
-    <div>
-      <h1>Shop</h1>
-    </div>
+    <Routes>
+      <Route index element={<CategoriesPreview />} />
+      <Route path=":category" element={<Category />} />
+    </Routes>
   );
 };
 

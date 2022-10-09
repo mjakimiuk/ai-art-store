@@ -1,21 +1,26 @@
-import {
-  BackgroundImage,
-  Body,
-  CatalogItemContainer,
-} from "./catalog-item.style.jsx";
+import { useNavigate } from "react-router-dom";
+import "./catalog-item.styles.scss";
 
-const CatalogItem = ({ category }) => {
-  const { name, imageUrl } = category;
+const CatalogItemComponent = ({ category }) => {
+  const { Name, imageURL, route } = category;
+  const navigate = useNavigate();
+  const navigateHandler = () => navigate(route);
   return (
-    <CatalogItemContainer>
-      <BackgroundImage imageUrl={imageUrl} />
-
-      <Body>
-        <h2>{name}</h2>
-        <p>Shop now</p>
-      </Body>
-    </CatalogItemContainer>
+    <div className="container" onClick={navigateHandler}>
+      <div
+        className="background-image"
+        style={{
+          backgroundImage: `url(${imageURL})`,
+        }}
+      />
+      <div className="container-text-description">
+        <div>
+          <h2>{Name}</h2>
+          <p>Shop Now</p>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default CatalogItem;
+export default CatalogItemComponent;

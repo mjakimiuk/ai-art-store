@@ -29,7 +29,6 @@ const firebaseConfig = {
   appId: "1:760174591077:web:6e68afe00e1234c19e1a8c",
 };
 
-// Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
@@ -89,3 +88,28 @@ export const onAuthStateChangedListener = (callback) => {
 };
 
 export { onAuthStateChanged };
+
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+  objectsToAdd.forEach((object) => {
+    const newDocRef = doc(collectionRef, object.category.toLowerCase());
+    batch.set(newDocRef, object);
+  });
+  return await batch.commit();
+};
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionKey = collection(db, "categories");
+  const q = query(collectionKey);
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { category, items } = docSnapshot.data();
+    acc[category.toLowerCase()] = items;
+    return acc;
+  }, {});
+  return categoryMap;
+};
