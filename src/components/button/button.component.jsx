@@ -3,6 +3,7 @@ import "./button.style.scss";
 export const BUTTON_TYPE = {
   base: "base-button",
   google: "google-signIn",
+  shop: "shop-button",
 };
 
 const ButtonComponent = ({ children, buttonType, ...otherProps }) => {
