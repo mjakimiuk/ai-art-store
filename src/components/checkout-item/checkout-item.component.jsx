@@ -1,9 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addItem,
   removeItem,
   clearItem,
-  clearCart,
   cartValueUpdate,
 } from "../../features/cart/cartSlice.feature";
 import "./checkout-item.styles.scss";
