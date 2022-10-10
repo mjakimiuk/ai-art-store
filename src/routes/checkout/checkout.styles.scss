@@ -18,6 +18,11 @@
       .header-block {
         text-transform: capitalize;
         width: 23%;
+        @media screen and (max-width: 800px) {
+  
+        font-size: 10px;
+        
+          }
   
         &:last-child {
           width: 8%;

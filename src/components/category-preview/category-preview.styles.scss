@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 .category-preview-container {
+    padding: 0 50px 0 50px;
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    @media screen and (max-width: 800px) {
   
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 20px 20px;
+        }
     .title {
    
       margin-bottom: 25px;
@@ -16,6 +22,14 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       column-gap: 20px;
+      @media screen and (max-width: 800px) {
+  
+        display: flex;
+        flex-direction: column;
+        
+          }
+      
     }
+    
   }
   

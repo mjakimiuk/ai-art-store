@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Logo from "../../components/logo/logo.component";
 import ShoppingCartIconComponent from "../../components/shopping-cart-icon/shopping-cart-icon.component";
 import CartDropdownMenu from "../../components/cart-dropdown-menu/cart-dropdown-menu.component";
+import Footer from "../../components/footer/footer.component";
 import { signOutFireBaseUser } from "../../utils/firebase/firebase.utils";
 import "./navbar.styles.scss";
 const Navbar = () => {
@@ -41,7 +42,9 @@ const Navbar = () => {
           {cartVisible && <CartDropdownMenu />}
         </div>
       </div>
+
       <Outlet />
+      <Footer />
     </Fragment>
   );
 };
