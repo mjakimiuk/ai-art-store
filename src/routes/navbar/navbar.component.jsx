@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import {
   logout,
@@ -13,6 +13,8 @@ import { signOutFireBaseUser } from "../../utils/firebase/firebase.utils";
 import "./navbar.styles.scss";
 const Navbar = () => {
   const { cartVisible } = useSelector((store) => store.cart);
+  const [cartIconVisible, setcartIconVisible] = useState(false);
+  setcartIconVisible(cartVisible);
   const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
   const logoutofApp = () => {
@@ -40,7 +42,7 @@ const Navbar = () => {
             </span>
           )}
           <ShoppingCartIconComponent />
-          {cartVisible && <CartDropdownMenu />}
+          {cartIconVisible && <CartDropdownMenu />}
         </div>
       </nav>
 
