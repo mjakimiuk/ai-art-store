@@ -1,11 +1,12 @@
 .catalog-container {
   width: 100%;
-  padding: 0 50px 0 50px;
+  padding: 0 350px 0 350px;
   // display: flex;
   // flex-wrap: wrap;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, 400px);
+ 
+  justify-content: space-evenly;
   @media screen and (max-width: 800px) {
   
     display: flex;

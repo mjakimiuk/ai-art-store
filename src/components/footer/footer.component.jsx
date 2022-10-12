@@ -2,13 +2,13 @@ import "./footer.styles.scss";
 
 const Footer = () => {
   return (
-    <div className="footer-container">
-      <div>Made with 🤍 by MJ</div>
-      <div>
+    <footer className="footer-container">
+      <p>Made with 🤍 by MJ</p>
+      <p>
         This webiste is a personal project. All images are parodies made with
         Midjourney AI
-      </div>
-    </div>
+      </p>
+    </footer>
   );
 };
 

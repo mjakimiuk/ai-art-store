@@ -21,10 +21,11 @@ const Navbar = () => {
   };
   return (
     <Fragment>
-      <div className="NavContainer">
+      <nav className="NavContainer">
         <Link to="/">
           <Logo />
         </Link>
+
         <div className="NavLinksContainer">
           <Link className="NavLink" to="/shop">
             Shop
@@ -41,7 +42,7 @@ const Navbar = () => {
           <ShoppingCartIconComponent />
           {cartVisible && <CartDropdownMenu />}
         </div>
-      </div>
+      </nav>
 
       <Outlet />
       <Footer />

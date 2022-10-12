@@ -5,11 +5,11 @@ const Logo = () => {
   const logoText = "AI:ART";
   return (
     <Fragment>
-      <div className="containerLogo">
+      <header className="containerLogo">
         <div className="glitch" data-text={logoText}>
           {logoText}
         </div>
-      </div>
+      </header>
     </Fragment>
   );
 };

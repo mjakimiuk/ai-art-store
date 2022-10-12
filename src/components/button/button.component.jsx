@@ -6,9 +6,20 @@ export const BUTTON_TYPE = {
   shop: "shop-button",
 };
 
-const ButtonComponent = ({ children, buttonType, ...otherProps }) => {
+const ButtonComponent = ({
+  children,
+  buttonType,
+  isLoading,
+  ...otherProps
+}) => {
   return (
-    <button className={`button-container ${buttonType}`} {...otherProps}>
+    <button
+      disabled={isLoading}
+      className={
+        isLoading ? `button-spinner` : `button-container ${buttonType}`
+      }
+      {...otherProps}
+    >
       {children}
     </button>
   );
