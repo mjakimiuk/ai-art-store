@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cartVisible: false,
+  cartVisible: true,
   cartItems: [],
   cartTotal: 0,
   cartCount: 0,
