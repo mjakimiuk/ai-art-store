@@ -7,9 +7,9 @@ import "./shopping-cart-icon.style.scss";
 const ShoppingCartIconComponent = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(toggleCartVisible());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(toggleCartVisible());
+  // }, [dispatch]);
   const { cartCount } = useSelector((store) => store.cart);
 
   return (
