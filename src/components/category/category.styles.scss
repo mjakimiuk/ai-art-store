@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .category-container {
-    padding: 0 50px 0 50px;
-    display:  grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 20px;
+    margin-top: 100px;
+    padding: 0 350px 0 350px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: space-evenly;
+    // column-gap: 20px;
     row-gap: 20px;
     @media screen and (max-width: 800px) {
   

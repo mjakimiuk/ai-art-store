@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 .category-preview-container {
-    padding: 0 50px 0 50px;
+    margin-top: 100px;
+    
+    
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    text-align: center;
     @media screen and (max-width: 800px) {
   
       display: flex;
@@ -19,9 +22,13 @@
     }
   
     .preview {
+      padding: 0 350px 0 350px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 20px;
+      grid-template-columns: repeat(auto-fill, 400px);
+      justify-content: space-evenly;
+      // column-gap: 45px;
+      
+      text-align: left;
       @media screen and (max-width: 800px) {
   
         display: flex;

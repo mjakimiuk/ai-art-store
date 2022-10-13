@@ -4,7 +4,7 @@
 .containerLogo {
     font-family: 'Press Start 2P', cursive;
     cursor: pointer;
-    padding: 25px;
+    padding-top: 25px;
     display: flex;
     width: 70px;
  
@@ -12,7 +12,7 @@
 
 
   .glitch {
-    color: rgb(223, 191, 191);
+    color: black;
     position: relative;
     font-size: 30px;
   
@@ -23,7 +23,7 @@
     content: attr(data-text);
     position: absolute;
     left: -2px;
-    text-shadow: -5px 0 #fbff00;
+    text-shadow: -5px 0 fuchsia;
  
     overflow: hidden;
     top: 0;
@@ -34,7 +34,7 @@
     content: attr(data-text);
     position: absolute;
     left: 2px;
-    text-shadow: -5px 0 rgb(238, 144, 230);
+    text-shadow: -5px 0 fuchsia;
  
     overflow: hidden;
     top: 0;
