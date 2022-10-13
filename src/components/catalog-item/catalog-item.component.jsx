@@ -16,7 +16,7 @@ const CatalogItemComponent = ({ category }) => {
       <div className="container-text-description">
         <div>
           <h2>{Name}</h2>
-          <p>Shop Now</p>
+          <p>Buy Now</p>
         </div>
       </div>
     </div>

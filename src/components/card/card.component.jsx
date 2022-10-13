@@ -23,6 +23,7 @@ const CardComponet = ({ category }) => {
     <div className="container">
       <div
         className="background-image"
+        alt={`${Name}`}
         style={{
           backgroundImage: `url(${imageURL})`,
         }}
