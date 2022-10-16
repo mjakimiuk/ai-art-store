@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;900&display=swap');
 
-
 .NavContainer {
     position: fixed;
     top: 0px;
@@ -13,8 +12,6 @@
     background-color: white;
     z-index: 5;
     @media screen and (max-width: 800px) {
-        // margin-top: 35px;
-        // margin-right: -60px;
         display: grid;
         flex-direction: column;
         justify-content: space-evenly;
@@ -31,14 +28,23 @@
     font-family:  'Orbitron', sans-serif;
     font-weight: 900;
     color: black;
-   
     height: 100%;
     display: flex;
    
 }
 
+
+
 .NavLink {
     padding: 10px 10px;
     cursor: pointer;
+
+    &.Shop{
+        opacity: 1;
+    }
+
+    
+    
 }
+
 

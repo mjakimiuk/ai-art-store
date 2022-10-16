@@ -24,11 +24,17 @@ const Checkout = () => {
           <span>Remove</span>
         </div>
       </div>
-
       {cartItems.map((cartItem) => {
         return <CheckoutItem key={cartItem.ID} cartItem={cartItem} />;
       })}
       <span className="total">Total: ${cartTotal}</span>
+      Use dummy number:
+      <ul>
+        <li>Card: 4242 4242 4242 4242</li>
+        <li>MM/YY: 04/42 </li>
+        <li>CVC: 424 </li>
+        <li>Postal code: 24242</li>
+      </ul>
       <PaymentStripeForm />
     </div>
   );

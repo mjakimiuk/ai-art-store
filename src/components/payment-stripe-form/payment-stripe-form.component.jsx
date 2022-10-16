@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 import ButtonComponent from "../button/button.component";
@@ -10,6 +11,7 @@ const PaymentStripeForm = () => {
   const { cartTotal } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const [processingPayment, setProcessingPayment] = useState(false);
+  const [paymentSucess, setPaymentSucess] = useState(false);
   const paymentHandler = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -26,7 +28,7 @@ const PaymentStripeForm = () => {
     const {
       paymentIntent: { client_secret },
     } = response;
-    console.log(client_secret);
+
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -41,6 +43,8 @@ const PaymentStripeForm = () => {
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         console.log("Payment successful");
+        setPaymentSucess(true);
+        alert("Payment successful");
       }
     }
 
@@ -54,6 +58,7 @@ const PaymentStripeForm = () => {
         <ButtonComponent isLoading={processingPayment}>
           {processingPayment ? `` : `PAY NOW`}
         </ButtonComponent>
+        {paymentSucess && <Navigate to="/" />}
       </form>
     </div>
   );
