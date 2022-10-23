@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import PaymentStripeForm from "../../components/payment-stripe-form/payment-stripe-form.component";
+import EmptyCart from "../../components/empty-cart/empty-cart";
 import "./checkout.styles.scss";
 
 const Checkout = () => {
@@ -27,6 +28,14 @@ const Checkout = () => {
       {cartItems.map((cartItem) => {
         return <CheckoutItem key={cartItem.ID} cartItem={cartItem} />;
       })}
+      {cartItems.length === 0 ? (
+        <div>
+          <br></br>
+          <p>Your cart is empty</p>
+        </div>
+      ) : (
+        <EmptyCart />
+      )}
       <span className="total">Total: ${cartTotal}</span>
       Use dummy number:
       <ul>

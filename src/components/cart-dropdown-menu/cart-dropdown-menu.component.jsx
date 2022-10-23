@@ -1,5 +1,6 @@
 import ButtonComponent from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
+import EmptyCart from "../empty-cart/empty-cart";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./cart-dropdown-menu.style.scss";
@@ -21,6 +22,7 @@ const CartDropdownMenu = () => {
         ) : (
           <span className="empty-message">Your cart is empty</span>
         )}
+        {cartItems.length > 0 && <EmptyCart />}
       </div>
       <ButtonComponent onClick={checkoutHandler}>
         GO TO CHECKOUT

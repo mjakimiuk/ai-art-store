@@ -54,7 +54,6 @@ export const createFireBaseUserWithEmailAndPassword = async (
 
 export const signOutFireBaseUser = async () => {
   await signOut(auth);
-  console.log("clicked");
 };
 
 export const createUserDocumentFomAuth = async (
@@ -112,4 +111,10 @@ export const getCategoriesAndDocuments = async () => {
     return acc;
   }, {});
   return categoryMap;
+};
+
+export const getUserInfo = async (userAuth) => {
+  const userDocRef = doc(db, "users", userAuth);
+  const userSnapshot = await getDoc(userDocRef);
+  return userSnapshot.data();
 };

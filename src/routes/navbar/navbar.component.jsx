@@ -10,6 +10,7 @@ import ShoppingCartIconComponent from "../../components/shopping-cart-icon/shopp
 import CartDropdownMenu from "../../components/cart-dropdown-menu/cart-dropdown-menu.component";
 import ShopDropdownMenu from "../../components/shop-dropdown-menu/shop-dropdown-menu.component";
 import Footer from "../../components/footer/footer.component";
+import ScrollUpComponent from "../../components/scroll-up.component/scroll.up.component";
 import { signOutFireBaseUser } from "../../utils/firebase/firebase.utils";
 import "./navbar.styles.scss";
 const Navbar = () => {
@@ -50,13 +51,19 @@ const Navbar = () => {
               Sign-in
             </Link>
           ) : (
-            <span className="NavLink" onClick={logoutofApp}>
-              Sign-out
-            </span>
+            <Fragment>
+              <Link className="NavLink" to="/profile">
+                Profile
+              </Link>
+              <span className="NavLink" onClick={logoutofApp}>
+                Sign-out
+              </span>
+            </Fragment>
           )}
           <ShoppingCartIconComponent />
           {cartVisible && <CartDropdownMenu />}
         </div>
+        <ScrollUpComponent />
       </nav>
 
       <Outlet />
