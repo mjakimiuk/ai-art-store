@@ -6,8 +6,9 @@
   grid-template-columns: repeat(auto-fill, 400px);
  
   justify-content: space-evenly;
-  @media screen and (max-width: 800px) {
-  
+  @media screen and (max-width: 600px) {
+    align-items: center;
+    flex-wrap: nowrap;
     display: flex;
     flex-direction: column;
     padding: 20px 20px 20px 31px;

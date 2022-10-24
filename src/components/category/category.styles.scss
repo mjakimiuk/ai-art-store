@@ -8,8 +8,9 @@
     justify-content: space-evenly;
     // column-gap: 20px;
     row-gap: 20px;
-    @media screen and (max-width: 800px) {
-  
+    @media screen and (max-width: 600px) {
+        align-items: center;
+        flex-wrap: nowrap;
         display: flex;
         flex-direction: column;
         padding: 20px 20px 20px 20px;
@@ -22,8 +23,9 @@
     font-size: 38px;
     margin-bottom: 25px;
     text-align: center;
-    @media screen and (max-width: 800px) {
-  
+    @media screen and (max-width: 600px) {
+        align-items: center;
+        flex-wrap: nowrap;
         display: flex;
         flex-direction: column;
         padding: 20px;

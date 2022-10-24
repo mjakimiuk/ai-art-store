@@ -14,8 +14,9 @@
     
       margin-bottom: 25px;
       cursor: pointer;
-      @media screen and (max-width: 800px) {
-  
+      @media screen and (max-width: 600px) {
+        align-items: center;
+        flex-wrap: nowrap;
         display:flex;
         flex-direction: column;
         padding-top: 20px;
@@ -30,8 +31,9 @@
       // column-gap: 45px;
       
       text-align: left;
-      @media screen and (max-width: 800px) {
-  
+      @media screen and (max-width: 600px) {
+        align-items: center;
+        flex-wrap: nowrap;
         display: flex;
         flex-direction: column;
         padding: 30px 20px 20px 30px;
