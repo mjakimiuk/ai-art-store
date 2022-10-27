@@ -12,6 +12,7 @@ import ShopDropdownMenu from "../../components/shop-dropdown-menu/shop-dropdown-
 import Footer from "../../components/footer/footer.component";
 import ScrollUpComponent from "../../components/scroll-up.component/scroll.up.component";
 import { signOutFireBaseUser } from "../../utils/firebase/firebase.utils";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import "./navbar.styles.scss";
 const Navbar = () => {
   const { cartVisible } = useSelector((store) => store.cart);
@@ -30,6 +31,7 @@ const Navbar = () => {
   const handleMouseOut = () => {
     setIsHovering(false);
   };
+  const isDesktop = useMediaQuery("(min-width: 960px)");
   return (
     <Fragment>
       <nav className="NavContainer">
@@ -43,7 +45,7 @@ const Navbar = () => {
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
           >
-            <Link to="/shop">Shop</Link>
+            {<Link to={isDesktop ? "/shop" : ""}>Shop</Link>}
             {isHovering && <ShopDropdownMenu />}
           </div>
           {!user ? (
