@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.sign-in-container {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  @media screen and (max-width: 800px) {
+    
+    justify-content: center;
+    margin-bottom: 20px;
+    width:320px;
+    padding: 30px 20px 30px 30px;
+       }
+}
+
+h2 {
+    margin: 10px 0;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 800px) {
+   width:50px;
+   
+      }
+}

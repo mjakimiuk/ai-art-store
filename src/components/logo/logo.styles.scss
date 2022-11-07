@@ -1,0 +1,69 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.containerLogo {
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    padding-top: 25px;
+    display: flex;
+    width: 70px;
+ 
+}
+
+
+  .glitch {
+    color: black;
+    position: relative;
+    font-size: 30px;
+  
+    animation: glitch 10s 5s infinite;
+  }
+  
+  .glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: -5px 0 fuchsia;
+ 
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 4s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+  }
+  
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -5px 0 fuchsia;
+ 
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 4s linear infinite alternate-reverse, glitch 5s 5s infinite;
+  }
+  
+
+  
+  @keyframes noise-1 {
+    $steps: 15;
+    @for $i from 1 through $steps {
+      #{percentage(calc($i*(1/$steps)))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+  
+  @keyframes noise-2 {
+    $steps: 30;
+    @for $i from 0 through $steps {
+      #{percentage(calc($i*(1/$steps)))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+  
+
+  

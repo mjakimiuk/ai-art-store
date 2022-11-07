@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;900&display=swap');
+.button-container {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    padding: 0 25px 0 25px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+  
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
+  
+    &.google-signIn {
+      background-color: black;
+      background-image: url("../../assets/images/btn_google_signin_light_normal_web@2x.png");
+      background-size: 165px 50px;
+  
+      &:hover {
+        background-color: #357ae8;
+        background-image: url("../../assets/images/btn_google_signin_light_pressed_web@2x.png");
+        background-size: 165px 50px;
+        border: none;
+      }
+    }
+  
+    &.inverted {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+  
+      &:hover {
+        background-color: black;
+        color: white;
+        border: none;
+      }
+    }
+    &.shop-button {
+      position: absolute;
+      top: -60px;
+      left: 100px;
+      font-size: 12px;
+      min-width: 140px;
+      padding: 0 15px 0 15px;
+      &:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+      }
+    }
+  }
+
+.button-spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(195, 195, 195, 0.6);
+  border-radius: 50%;
+  border-top-color: #636767;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+}

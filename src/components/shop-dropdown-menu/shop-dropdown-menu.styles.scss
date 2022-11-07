@@ -1,0 +1,24 @@
+.shop-dropdown-menu-container{
+    list-style-type: none;
+    position: absolute;
+    width:300px;
+    height: 300px;
+    z-index: 10;
+    border: 1px solid black;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    top: 90px;
+    right: 180px;
+    background-color: white;
+    padding: 20px;
+    @media screen and (max-width: 600px) {
+        top: 120px;
+        left: 15%;
+      }
+    
+
+    .shop-dropdown-menu-item{
+        padding: 10px;
+    }
+}
+
