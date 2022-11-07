@@ -1,10 +1,11 @@
 .cart-dropdown-container {
     position: absolute;
-    width: 260px;
-    height: 360px;
+    width: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 40px;
+   
     border: 1px solid black;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
     background-color: white;
@@ -34,4 +35,13 @@
     button {
       margin-top: auto;
     }
+    .x-mark-icon{
+      height: 32px;
+      width: 32px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      z-index: 15;
+  }
   }

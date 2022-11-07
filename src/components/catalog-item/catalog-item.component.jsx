@@ -5,6 +5,7 @@ const CatalogItemComponent = ({ category }) => {
   const { Name, imageURL, route } = category;
   const navigate = useNavigate();
   const navigateHandler = () => navigate(route);
+
   return (
     <div className="container" onClick={navigateHandler}>
       <div

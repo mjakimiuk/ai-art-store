@@ -18,6 +18,8 @@ import {
   writeBatch,
   query,
   getDocs,
+  updateDoc,
+  arrayUnion,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -117,4 +119,28 @@ export const getUserInfo = async (userAuth) => {
   const userDocRef = doc(db, "users", userAuth);
   const userSnapshot = await getDoc(userDocRef);
   return userSnapshot.data();
+};
+
+export const setScoreFirebase = async (objectID, userScore) => {
+  const docRef = doc(db, "scoreObject", `${objectID}`);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const userID = user.uid;
+      return updateDoc(docRef, { [userID]: userScore });
+    }
+  });
+};
+
+export const getScoreFirebase = async (objectID) => {
+  const docRef = doc(db, "scoreObject", `${objectID}`);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const length = Object.keys(docSnap.data()).length;
+    const sum = Object.values(docSnap.data()).reduce((a, b) => a + b, 0);
+    const average = sum / length;
+    return average;
+  } else {
+    console.log("No such document!");
+  }
 };
