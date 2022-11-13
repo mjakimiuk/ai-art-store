@@ -4,6 +4,7 @@ import ButtonComponent from "../button/button.component";
 import {
   createFireBaseUserWithEmailAndPassword,
   createUserDocumentFomAuth,
+  updateProfileFirebase,
 } from "../../utils/firebase/firebase.utils";
 import "./user.sign-up.style.scss";
 
@@ -30,8 +31,7 @@ const SignUpForm = () => {
         email,
         password
       );
-
-      await createUserDocumentFomAuth(user, { displayName });
+      await updateProfileFirebase(displayName);
       resetFormFields();
       alert("User created successfully");
     } catch (error) {

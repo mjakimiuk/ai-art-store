@@ -1,0 +1,36 @@
+.image-modal{
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+.image-postion{
+    margin-top: 200px;
+    height: auto;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  
+
+    
+}
+}
+
+
+.x-mark-icon{
+    color: white;
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    z-index: 15;
+}
+.x-mark-icon:hover{
+    opacity: 60%;
+}
