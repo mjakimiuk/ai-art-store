@@ -3,6 +3,7 @@ import { ReactComponent as CloseProfileModalXmarkIcon } from "../../assets/icons
 import NameProfileForm from "../profile-form/name.profile-form.component";
 import EmailProfileForm from "../profile-form/email.profile-form.component";
 import PasswordProfileForm from "../profile-form/password.profile-form.component";
+import PhoneNumberProfileForm from "../profile-form/phone.profile-form.component";
 import "../profile-modal/profile.styles.scss";
 
 const ProfileModal = (props) => {
@@ -25,6 +26,12 @@ const ProfileModal = (props) => {
           <div>
             <h1>Profile Password</h1>
             <PasswordProfileForm />
+          </div>
+        )}
+        {props.modalType === "phone" && (
+          <div>
+            <h1>Profile Phone Number</h1>
+            <PhoneNumberProfileForm />
           </div>
         )}
         <CloseProfileModalXmarkIcon
