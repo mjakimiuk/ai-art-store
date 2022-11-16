@@ -7,6 +7,9 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
+  updateEmail,
+  updatePassword,
 } from "firebase/auth";
 
 import {
@@ -19,7 +22,6 @@ import {
   query,
   getDocs,
   updateDoc,
-  arrayUnion,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -143,4 +145,50 @@ export const getScoreFirebase = async (objectID) => {
   } else {
     console.log("No such document!");
   }
+};
+
+export const updateProfileFirebase = (username) => {
+  const auth = getAuth();
+  updateProfile(auth.currentUser, {
+    displayName: username,
+  })
+    .then(() => {
+      // Profile updated!
+      // ...
+      // console.log("Profile updated!");
+    })
+    .catch((error) => {
+      // An error occurred
+      // ...
+    });
+};
+
+export const updateEmailProfileFirebase = (email) => {
+  const auth = getAuth();
+  updateEmail(auth.currentUser, email)
+    .then(() => {
+      // Profile updated!
+      // ...
+      // console.log("Profile updated!");
+    })
+    .catch((error) => {
+      // An error occurred
+      // ...
+      console.log(error);
+    });
+};
+
+export const updatePasswordProfileFirebase = (password) => {
+  const auth = getAuth();
+  updatePassword(auth.currentUser, password)
+    .then(() => {
+      // Profile updated!
+      // ...
+      // console.log("Profile updated!");
+    })
+    .catch((error) => {
+      // An error occurred
+      // ...
+      console.log(error);
+    });
 };

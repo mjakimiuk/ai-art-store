@@ -31,9 +31,15 @@ const CartDropdownMenu = () => {
         )}
         {cartItems.length > 0 && <EmptyCart />}
       </div>
-      <ButtonComponent onClick={checkoutHandler}>
-        GO TO CHECKOUT
-      </ButtonComponent>
+      {cartItems.length ? (
+        <ButtonComponent onClick={checkoutHandler}>
+          GO TO CHECKOUT
+        </ButtonComponent>
+      ) : (
+        <ButtonComponent onClick={() => dispatch(toggleCartVisible())}>
+          CONTINUE BROWSING
+        </ButtonComponent>
+      )}
     </div>
   );
 };
