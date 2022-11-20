@@ -1,24 +1,29 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
-import { login } from "../../features/user/userSlice.feature";
-import { onAuthStateChangedListener } from "../../utils/firebase/firebase.utils";
-import { getUserInfo } from "../../utils/firebase/firebase.utils";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { getPhoneAndAddress } from "../../utils/firebase/firebase.utils";
 import { ReactComponent as EditIcon } from "../../assets/icons/edit.icon.svg";
 import ProfileModal from "../../components/profile-modal/profile-modal.component";
 import "./user-profile.styles.scss";
 
 const UserProfile = () => {
   const { user } = useSelector((state) => state.user);
-
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const response = async () => {
+    const responseData = await getPhoneAndAddress();
+    setPhone(responseData.phoneNumber);
+    setAddress(responseData.address);
+  };
+  response();
   const profileFields = ["Name", "Email", "Password", "Phone", "Address"];
   const profileData = {
     Name: user.displayName,
     Email: user.email,
     Password: "********",
-    Phone: "1234567890",
-    Address: "1234 Main St, New York, NY 10001",
+    Phone: `${phone}`,
+    Address: `${address}`,
   };
+
   // Profile Modal
   const [nameModal, setNameModal] = useState(false);
   const [emailModal, setEmailModal] = useState(false);

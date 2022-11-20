@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import ButtonComponent from "../button/button.component";
+import { updatePhoneNumber } from "../../utils/firebase/firebase.utils";
 import "../../components/profile-form/profile-form.styles.scss";
 const PhoneNumberProfileForm = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -12,6 +13,8 @@ const PhoneNumberProfileForm = () => {
       alert("username don't match");
       return;
     }
+    updatePhoneNumber(phoneNumber);
+    alert("Number updated");
   };
   return (
     <div>
@@ -21,7 +24,7 @@ const PhoneNumberProfileForm = () => {
           label="Phone Number"
           required
           onChange={(event) => setPhoneNumber(event.target.value)}
-          type="number"
+          type="tel"
           name="PhoneNumber"
           value={phoneNumber}
         />
@@ -29,7 +32,7 @@ const PhoneNumberProfileForm = () => {
           label="Confirm Phone Number"
           required
           onChange={(event) => setConfirmPhoneNumber(event.target.value)}
-          type="number"
+          type="tel"
           name="PhoneNumber"
           value={confirmPhoneNumber}
         />

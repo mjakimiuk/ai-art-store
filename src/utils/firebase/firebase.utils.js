@@ -60,32 +60,6 @@ export const signOutFireBaseUser = async () => {
   await signOut(auth);
 };
 
-export const createUserDocumentFomAuth = async (
-  userAuth,
-  additionalInformation = {}
-) => {
-  if (!userAuth) return;
-  const userDocRef = doc(db, "users", userAuth.uid);
-  const userSnapshot = await getDoc(userDocRef);
-
-  if (!userSnapshot.exists()) {
-    const { displayName, email } = userAuth;
-    const createdAt = new Date();
-    try {
-      await setDoc(userDocRef, {
-        displayName,
-        email,
-        createdAt,
-        ...additionalInformation,
-      });
-    } catch (error) {
-      console.log("error creating user", error.message);
-    }
-  }
-
-  return userDocRef;
-};
-
 export const onAuthStateChangedListener = (callback) => {
   onAuthStateChanged(auth, callback);
 };
@@ -191,4 +165,58 @@ export const updatePasswordProfileFirebase = (password) => {
       // ...
       console.log(error);
     });
+};
+
+export const updatePhoneNumber = async (phoneNumber) => {
+  const auth = getAuth();
+  const userDocRef = doc(db, "users", auth.currentUser.uid);
+
+  const createdAt = new Date();
+  try {
+    await setDoc(
+      userDocRef,
+      {
+        phoneNumber,
+        createdAt,
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.log("error Phone Number", error.message);
+  }
+
+  return userDocRef;
+};
+
+export const getPhoneAndAddress = async () => {
+  const auth = getAuth();
+  const userDocRef = doc(db, "users", auth.currentUser.uid);
+  const userSnapshot = await getDoc(userDocRef);
+  if (userSnapshot.exists()) {
+    return userSnapshot.data();
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
+};
+
+export const updateAdress = async (address) => {
+  const auth = getAuth();
+  const userDocRef = doc(db, "users", auth.currentUser.uid);
+
+  const createdAt = new Date();
+  try {
+    await setDoc(
+      userDocRef,
+      {
+        address,
+        createdAt,
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.log("error Adress", error.message);
+  }
+
+  return userDocRef;
 };

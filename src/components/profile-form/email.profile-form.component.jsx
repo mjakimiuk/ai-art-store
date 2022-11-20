@@ -14,6 +14,7 @@ const EmailProfileForm = () => {
       return;
     }
     updateEmailProfileFirebase(emailAddress);
+    alert("Email updated");
   };
   return (
     <div>
