@@ -41,16 +41,11 @@ provider.setCustomParameters({ prompt: "select_account" });
 export const auth = getAuth();
 export const db = getFirestore();
 const analitycs = getAnalytics(firebaseApp);
-export const signInWithGooglePopUp = () => {
-  signInWithPopup(auth, provider);
-  const analytics = getAnalytics();
-  logEvent(analytics, "login");
-};
+export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
 
 export const signInUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
-  const analytics = getAnalytics();
-  logEvent(analytics, "login");
+
   return signInWithEmailAndPassword(auth, email, password);
 };
 
@@ -59,8 +54,7 @@ export const createFireBaseUserWithEmailAndPassword = async (
   password
 ) => {
   if (!email || !password) return;
-  const analytics = getAnalytics();
-  logEvent(analytics, "sign_up");
+
   return createUserWithEmailAndPassword(auth, email, password);
 };
 

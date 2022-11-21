@@ -6,6 +6,7 @@ import {
   signInWithGooglePopUp,
   signInUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../features/user/userSlice.feature";
 import "./user.sign-in.style.scss";
@@ -57,6 +58,8 @@ const SignInForm = () => {
         })
       );
     });
+    const analytics = getAnalytics();
+    logEvent(analytics, "login");
   };
   const handleChange = (event) => {
     const { name, value } = event.target;
