@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -39,11 +40,17 @@ provider.setCustomParameters({ prompt: "select_account" });
 
 export const auth = getAuth();
 export const db = getFirestore();
-export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
+const analitycs = getAnalytics(firebaseApp);
+export const signInWithGooglePopUp = () => {
+  signInWithPopup(auth, provider);
+  const analytics = getAnalytics();
+  logEvent(analytics, "login");
+};
 
 export const signInUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
-
+  const analytics = getAnalytics();
+  logEvent(analytics, "login");
   return signInWithEmailAndPassword(auth, email, password);
 };
 
@@ -52,7 +59,8 @@ export const createFireBaseUserWithEmailAndPassword = async (
   password
 ) => {
   if (!email || !password) return;
-
+  const analytics = getAnalytics();
+  logEvent(analytics, "sign_up");
   return createUserWithEmailAndPassword(auth, email, password);
 };
 

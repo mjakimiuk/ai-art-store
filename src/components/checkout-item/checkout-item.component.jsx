@@ -5,15 +5,20 @@ import {
   clearItem,
   cartValueUpdate,
 } from "../../features/cart/cartSlice.feature";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import "./checkout-item.styles.scss";
 
 const CheckoutItem = ({ cartItem }) => {
   const { Name, imageURL, Price, quantity } = cartItem;
   const dispatch = useDispatch();
   const addItemHandler = () => {
+    const analytics = getAnalytics();
+    logEvent(analytics, "add_to_cart");
     dispatch(addItem(cartItem));
   };
   const removeItemHandler = () => {
+    const analytics = getAnalytics();
+    logEvent(analytics, "remove_from_cart");
     dispatch(removeItem(cartItem));
   };
   const clearItemHandler = () => {
