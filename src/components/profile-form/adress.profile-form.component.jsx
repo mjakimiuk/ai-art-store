@@ -18,7 +18,7 @@ const AddressProfileForm = () => {
   };
   return (
     <div>
-      <div>Update phone number</div>
+      <div>Update address</div>
       <form onSubmit={formSubmitHandler}>
         <FormInput
           label="Address"
