@@ -38,11 +38,11 @@
     border: 1px solid black;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
     background-color: white;
-   
     z-index: 101;
     @media screen and (max-width: 800px) {
-        margin-top: 25px;
-        margin-right: -30px;
+        margin-top: -40px;
+        width: 350px;
+        height: 550px;
     }
     
     .x-mark-icon{
